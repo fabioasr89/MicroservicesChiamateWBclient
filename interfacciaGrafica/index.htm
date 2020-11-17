@@ -20,29 +20,6 @@
 				var p=Math.floor(Math.random()*100);
 				$('#list').append('<option value="'+p+'">'+p+'</option>');
 			}
-			$('#btn').click(function(){
-				var param="";
-				if($('#list').val()!=null && $('#list').val()!="-1"){
-					param=$('#list').val();
-					$.ajax({
-						dataType:'json',
-						type:'POST',
-						url:'http://localhost:9090/ClientRequestOrderListAPI/ordina',
-						data:{'lista':param},
-
-						success:function(xhr){
-							console.log(xhr);
-						},error:function(){
-
-						}
-
-
-					});
-
-				}
-
-			});
-
 
 		})
 
