@@ -1,0 +1,28 @@
+package com.fabio.rest.servizio;
+
+import org.springframework.beans.factory.annotation.Value;
+
+import com.fabio.rest.bean.RichiestaBean;
+import com.fabio.rest.bean.RispostaBean;
+import com.fabio.rest.bean.WebClientAdapter;
+
+public class ClientService {
+	@Value("${ordinaListaService.host.uri}")
+	private String uriBase;
+	
+	private WebClientAdapter adapter;
+	
+	/*Implementazione del servizio di richiesta lato client:controlla che la richiesta sia corretta e passa
+	 * la palla all'altro servizio*/
+	public RispostaBean getResponse(RichiestaBean richiesta) {
+		RispostaBean risposta=null;
+		boolean esito=false;
+		try {
+			adapter=new WebClientAdapter(uriBase);
+			risposta=adapter.ordinaListaServices(richiesta.getDati());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return risposta;
+	}
+}

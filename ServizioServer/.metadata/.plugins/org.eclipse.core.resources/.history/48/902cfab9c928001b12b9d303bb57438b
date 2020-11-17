@@ -1,0 +1,5 @@
+package com.fabio.rest.service;
+
+public class OrdinaListaService {
+
+}

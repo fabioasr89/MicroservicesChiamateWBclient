@@ -1,0 +1,5 @@
+package com.fabio.rest.servizio;
+
+public class ClientService {
+
+}

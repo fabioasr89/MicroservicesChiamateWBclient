@@ -1,0 +1,44 @@
+package com.fabio.rest.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fabio.rest.bean.RichiestaBean;
+import com.fabio.rest.bean.RispostaBean;
+import com.fabio.rest.service.OrdinaListaService;
+
+@CrossOrigin("*")
+@RestController
+@RequestMapping(value="/OrderByService/")
+public class OrderListRestController {
+	
+	@Autowired
+	private OrdinaListaService service;
+	
+
+	
+	@RequestMapping(value="orderList/{lista}",method=RequestMethod.GET)
+	public RispostaBean getServiceResponser(@PathVariable List<String> lista) {
+		RispostaBean bean=null;
+		RichiestaBean richiesta=new RichiestaBean();
+		System.out.println("Recupero Lista in corso");
+		richiesta.setDati(lista);
+		System.out.println("Sei qui");
+		try {
+			System.out.println(lista.size());
+			bean=service.getResponse(richiesta);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return bean;
+	}
+	
+	
+
+}

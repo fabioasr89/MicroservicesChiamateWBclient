@@ -1,0 +1,22 @@
+package com.fabio.rest.mapper;
+
+import java.util.Collections;
+import java.util.List;
+
+public class UtilMethodMapper<E extends Comparable<? super E>> {
+
+	public UtilMethodMapper() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public void orderBy(List<E> datiDaOrdinare) {
+		try {
+			if(datiDaOrdinare!=null && !datiDaOrdinare.isEmpty()) {
+				Collections.sort(datiDaOrdinare);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

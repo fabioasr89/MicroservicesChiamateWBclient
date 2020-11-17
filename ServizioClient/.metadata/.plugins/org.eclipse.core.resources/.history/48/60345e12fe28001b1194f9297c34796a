@@ -1,0 +1,58 @@
+package com.fabio.rest.bean;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
+import org.springframework.web.reactive.function.client.ClientResponse;
+import org.springframework.web.reactive.function.client.WebClient;
+
+import com.google.gson.Gson;
+
+import reactor.core.publisher.Mono;
+
+public class WebClientAdapter implements WebClientInterface{
+	
+	private WebClient client;
+	private String uri;
+	private Mono<String> response;
+	public WebClientAdapter(String uri) {
+		this.client=WebClient.create();
+		this.uri=uri;
+	}
+	
+	@Override
+	public RispostaBean ordinaListaServices(List<Integer> listaDati) {
+		RispostaBean bean=null;
+		String uri=this.uri+"/OrderByService/orderList/{list}";
+		boolean esito=false;
+		bean=new RispostaBean();
+		String formatoJson=null;
+		Gson json=null;
+		try {
+			response=this.client.get().uri(uri,listaDati).retrieve().bodyToMono(String.class);
+			if(response!=null) {
+				esito=true;
+				//recuperiamo la risposta in formato json
+				formatoJson=response.block();
+				//trasformiamo il json in un oggetto
+				json=new Gson();
+				bean=json.fromJson(formatoJson,RispostaBean.class);
+			}
+		}catch(Exception e) {
+			esito=false;
+			e.printStackTrace();
+		}
+		bean.setEsito(esito);
+		if(!esito) {
+			bean=new RispostaBean();
+			bean.setEsito(esito);
+			bean.setMessage("Non è stato possibile processare i dati dels ervizio");
+			bean.setDatiOrdinati(new ArrayList<Integer>());
+		}
+		return bean;
+	}
+	
+
+}

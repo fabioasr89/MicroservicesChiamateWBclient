@@ -1,0 +1,32 @@
+package com.fabio.rest.bean;
+
+import java.util.List;
+
+public class RichiestaBean<E extends Comparable<? super E>> {
+	
+	private List<E> dati;
+	private String ordine;
+	
+	public RichiestaBean() {
+		
+	}
+
+	public List<E> getDati() {
+		return dati;
+	}
+
+	public void setDati(List<E> dati) {
+		this.dati = dati;
+	}
+
+	public String getOrdine() {
+		return ordine;
+	}
+
+	public void setOrdine(String ordine) {
+		this.ordine = ordine;
+	}
+	
+	
+	
+}

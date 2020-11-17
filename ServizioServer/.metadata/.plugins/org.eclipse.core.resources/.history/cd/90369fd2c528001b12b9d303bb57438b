@@ -1,0 +1,12 @@
+package com.fabio.rest.bean;
+
+public class RispostaBean<E extends Comparable<? super E>> {
+	private List<E> dati;
+	private boolean esito;
+	private String message;
+	
+	public RispostaBean() {
+		
+	}
+
+}

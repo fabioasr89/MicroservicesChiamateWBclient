@@ -1,0 +1,2 @@
+server.port:9090
+ordinaListaService.host.uri=http://localhost:8090/

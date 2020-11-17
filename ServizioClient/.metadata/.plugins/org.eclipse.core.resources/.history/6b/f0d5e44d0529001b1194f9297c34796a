@@ -1,0 +1,29 @@
+package com.fabio.rest.bean;
+
+import java.util.List;
+
+public class RispostaBean {
+	private List<Integer> datiOrdinati;
+	private boolean esito;
+	private String message;
+	
+	public List<Integer> getDatiOrdinati() {
+		return datiOrdinati;
+	}
+	public void setDatiOrdinati(List<Integer> datiOrdinati) {
+		this.datiOrdinati = datiOrdinati;
+	}
+	public boolean isEsito() {
+		return esito;
+	}
+	public void setEsito(boolean esito) {
+		this.esito = esito;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
+}

@@ -1,0 +1,8 @@
+package com.fabio.rest.bean;
+
+import java.util.List;
+
+public interface WebClientAdapter {
+	
+	public RispostaBean ordinaListaServices(List<Integer> listaDati);
+}

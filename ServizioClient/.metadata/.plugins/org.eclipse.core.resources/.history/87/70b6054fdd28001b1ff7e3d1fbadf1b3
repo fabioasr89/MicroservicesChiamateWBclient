@@ -1,0 +1,30 @@
+package com.fabio.rest.bean;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.reactive.function.client.WebClient;
+
+public class WebClientAdapter implements WebClientInterface{
+	
+	private WebClient client;
+	private String uri;
+	public WebClientAdapter(WebClient.Builder webClient,@Value("${ordinaListaService.host.uri}") String uri) {
+		this.client=webClient.baseUrl(uri).build();	
+		this.uri=uri;
+	}
+	
+	@Override
+	public RispostaBean ordinaListaServices(List<Integer> listaDati) {
+		RispostaBean bean=null;
+		String uri=uri+""
+		try {
+			webClient
+		}catch(Exception e) {
+			
+		}
+		return null;
+	}
+	
+
+}

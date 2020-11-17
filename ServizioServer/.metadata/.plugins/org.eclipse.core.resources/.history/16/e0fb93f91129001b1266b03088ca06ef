@@ -1,0 +1,32 @@
+package com.fabio.rest.bean;
+
+import java.util.List;
+
+public class RichiestaBean {
+	
+	private List<Integer> dati;
+	private String ordine;
+	
+	public RichiestaBean() {
+		
+	}
+
+	public List<Integer> getDati() {
+		return dati;
+	}
+
+	public void setDati(List<Integer> dati) {
+		this.dati = dati;
+	}
+
+	public String getOrdine() {
+		return ordine;
+	}
+
+	public void setOrdine(String ordine) {
+		this.ordine = ordine;
+	}
+	
+	
+	
+}

@@ -1,0 +1,22 @@
+package com.fabio.rest.bean;
+
+import java.util.List;
+
+public class RichiestaBean {
+	private List<Integer> dati;
+	
+	public RichiestaBean() {
+		
+	}
+	public RichiestaBean(List<Integer> dati) {
+		this.dati=dati;
+	}
+	public List<Integer> getDati() {
+		return dati;
+	}
+
+	public void setDati(List<Integer> dati) {
+		this.dati = dati;
+	}
+	
+}

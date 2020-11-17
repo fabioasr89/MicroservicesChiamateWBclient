@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Order by random</title>
+	<script src="js/jQuery.js"></script>
+	<script src="js/dataTables.min.js"></script>
+	<link href="css/dataTab.css" rel="stylesheet">
+</head>
+<body>
+
+		<select  id="list" multiple>
+			<option value="-1">Seleziona i numeri</option>
+
+		</select>
+		<button type="button" id="btn">Invia richiesta</button>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			for(var i=0;i<50;i++){
+				var p=Math.floor(Math.random()*100);
+				$('#list').append('<option value="'+p+'">'+p+'</option>');
+			}
+
+			$('#btn').click(function(){
+				var param="";
+				if($('#list').val()!=null && $('#list').val()!="-1"){
+					param=$('#list').val();
+					$.ajax({
+						dataType:'json',
+						type:'GET',
+						url:'http://localhost:8080//ClientRequestOrderListAPI/orderList',
+						crossDomain:'true',
+						data:{'lista':param},
+						success:function(xhr){
+							console.log(xhr);
+						},error:function(){
+
+						}
+
+
+					});
+
+				}
+
+			});
+
+
+		})
+
+	</script>
+</body>
+</html>

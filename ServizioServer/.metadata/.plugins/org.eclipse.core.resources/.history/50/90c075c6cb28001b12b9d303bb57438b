@@ -1,0 +1,23 @@
+package com.fabio.rest.mapper;
+
+import java.util.Collections;
+import java.util.List;
+
+public class UtilMethodMapper {
+
+	public UtilMethodMapper() {
+	}
+	
+	
+	public boolean orderBy(List<Integer> datiDaOrdinare) {
+		try {
+			if(datiDaOrdinare!=null && !datiDaOrdinare.isEmpty()) {
+				Collections.sort(datiDaOrdinare);
+				return true;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+}

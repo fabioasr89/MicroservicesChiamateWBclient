@@ -1,0 +1,13 @@
+package com.fabio.rest.bean;
+
+import java.util.List;
+
+public class RichiestaBean<E extends Comparable<? super E>> {
+	
+	private List<E> dati;
+
+	public RichiestaBean() {
+		
+	}
+
+}
